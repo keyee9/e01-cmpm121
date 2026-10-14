@@ -40,14 +40,16 @@
       let target = null;
       // Select all enemies
       for (const enemy of enemies) {
-        // If health is zero, that enemy is not alive.
         if (enemy.health <= 0)
         {
           continue;
         }
-        // Keep the later enemy if two have equal health.
-          if (!target || target && target.health <= enemy.health) 
+        // Keep the latest enemy if two have equal health.
+        // Base Case for first iteration 
+          if (!target || target && target.health <= enemy.health) {
           target = enemy;
+          }
+
       }
       return target;
     }
